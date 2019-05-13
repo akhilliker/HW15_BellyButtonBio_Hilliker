@@ -41,9 +41,9 @@ function buildCharts(sample) {
       },
       text: sampleData.otu_labels
     };
-// ?? for some reason the pie chart is resetting with new drop down selection, 
-// but the bubble chart is adding more data to chart upon each search, why?
-// ?? Also the sample name in the bubble chart title isn't changing with menu selection
+    // ?? for some reason the pie chart is resetting with new drop down selection, 
+    // but the bubble chart is adding more data to chart upon each search, why?
+    // ?? Also the sample name in the bubble chart title isn't changing with menu selection
     var layout1 = {
       title: `${sample} Belly Button Microbiome`,
       showlegend: false,
@@ -51,7 +51,7 @@ function buildCharts(sample) {
       yaxis: {title: "Number of Times Found"}
     };
     Plotly.plot('bubble', [trace1], layout1);
-  }
+  });
     // @TODO: Build a Pie Chart, use slice to get 1st 10
     d3.json(plotURL).then(function(sampleData){  
     var pieData = [{
