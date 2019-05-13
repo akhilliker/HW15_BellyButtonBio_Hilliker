@@ -53,20 +53,23 @@ function buildCharts(sample) {
     Plotly.plot('bubble', [trace1], layout1);
   });
     // @TODO: Build a Pie Chart, use slice to get 1st 10
+    // Really, this data should be sorted by the sample_values to get the 10 most abundant bacteria
+    // but I'm out of time to work that into the files
     d3.json(plotURL).then(function(sampleData){  
-    var pieData = [{
-      values: sampleData.sample_values.slice(0,10),
-      labels: sampleData.otu_ids.slice(0,10),
-      type: "pie",
-      hovertext: sampleData.otu_labels.slice(0,10)
-    }];
+      
+      var pieData = [{
+        values: sampleData.sample_values.slice(0,10),
+        labels: sampleData.otu_ids.slice(0,10),
+        type: "pie",
+        hovertext: sampleData.otu_labels.slice(0,10)
+      }];
 
-    var layout2 = {
-      height: 400,
-      width: 500
-    }
-    Plotly.newPlot('pie', pieData, layout2);
-    });
+      var layout2 = {
+        height: 400,
+        width: 500
+      }
+      Plotly.newPlot('pie', pieData, layout2);
+      });
   }
 
 function init() {
